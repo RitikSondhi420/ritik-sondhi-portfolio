@@ -4,6 +4,7 @@
 
 An engineering-first, high-performance portfolio and system architecture visualizer built with **React 19, TypeScript, Vite, NestJS, PostgreSQL, Prisma, and Redis**.
 
+[![CI/CD Pipeline](https://github.com/RitikSondhi420/ritik-sondhi-portfolio/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/RitikSondhi420/ritik-sondhi-portfolio/actions)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.4+-blue.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.0-61dafb.svg?logo=react&logoColor=black)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.3-646cff.svg?logo=vite&logoColor=white)](https://vitejs.dev/)

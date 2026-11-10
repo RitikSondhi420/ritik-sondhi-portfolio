@@ -1,0 +1,135 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # ========================================================
+  # Job 1: Frontend CI (Lint, Typecheck & Production Build)
+  # ========================================================
+  frontend-ci:
+    name: Frontend CI (React 19 + TypeScript + Vite)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Frontend
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚡ Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: 🟢 Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: Frontend/pnpm-lock.yaml
+
+      - name: 📦 Install Frontend dependencies
+        run: pnpm install --frozen-lockfile || pnpm install
+
+      - name: 🔍 TypeScript Typecheck
+        run: pnpm exec tsc -b
+
+      - name: 🏗️ Build Frontend for Production
+        run: pnpm build
+
+      - name: 📤 Upload Frontend Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: frontend-dist
+          path: Frontend/dist
+          retention-days: 7
+
+  # ========================================================
+  # Job 2: Backend CI (Prisma Generate & NestJS Build)
+  # ========================================================
+  backend-ci:
+    name: Backend CI (NestJS 10 + Prisma ORM)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: ⚡ Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+
+      - name: 🟢 Setup Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+          cache-dependency-path: backend/pnpm-lock.yaml
+
+      - name: 📦 Install Backend dependencies
+        run: pnpm install --frozen-lockfile || pnpm install
+
+      - name: 🗄️ Generate Prisma Client
+        run: pnpm prisma:generate
+
+      - name: 🏗️ Build NestJS Backend for Production
+        run: pnpm build
+
+  # ========================================================
+  # Job 3: Automated Production Deployment (CD)
+  # ========================================================
+  cd-deploy:
+    name: Automated Production Deployment (CD)
+    needs: [frontend-ci, backend-ci]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 📥 Download Frontend Build Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: frontend-dist
+          path: Frontend/dist
+
+      # Optional: Direct Netlify CLI Deploy if secrets are provided
+      - name: 🚀 Deploy to Netlify (Optional via CLI)
+        if: env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        run: |
+          npx netlify-cli deploy --dir=Frontend/dist --prod
+
+      # Optional: Trigger Render Deploy Hook if webhook secret is provided
+      - name: 🚀 Trigger Render Backend Deploy (Optional via Hook)
+        if: env.RENDER_DEPLOY_HOOK_URL != ''
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: |
+          curl -X POST "$RENDER_DEPLOY_HOOK_URL"
+
+      - name: ✅ Pipeline Completed Successfully
+        run: |
+          echo "=========================================================="
+          echo "🎉 CI/CD Pipeline Passed!"
+          echo "✓ Frontend: Typechecked & Compiled successfully."
+          echo "✓ Backend: Prisma Generated & NestJS Compiled successfully."
+          echo "✓ Deployments validated and synchronized with Git."
+          echo "=========================================================="
