@@ -1,0 +1,17 @@
+# Netlify configuration for Ritik Sondhi's Portfolio
+
+[build]
+  base = "Frontend"
+  publish = "dist"
+  command = "pnpm build"
+
+[build.environment]
+  NODE_VERSION = "20"
+  PNPM_FLAGS = "--shamefully-hoist"
+
+# SPA redirect rule: redirects all client routes to index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
