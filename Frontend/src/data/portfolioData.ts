@@ -1,0 +1,346 @@
+export interface MetricItem {
+  label: string;
+  value: string;
+}
+
+export interface LanguageItem {
+  name: string;
+  proficiency: string;
+}
+
+export interface PersonalData {
+  name: string;
+  title: string;
+  experienceYears: string;
+  location: string;
+  relocation: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  summary: string;
+  languages: LanguageItem[];
+  metrics: MetricItem[];
+}
+
+export interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  type: string;
+  summary: string;
+  achievements: string[];
+  techStack: string[];
+  architectureHighlights: string;
+}
+
+export interface SkillItem {
+  name: string;
+  level: number;
+  featured?: boolean;
+}
+
+export interface SkillCategory {
+  category: string;
+  skills: SkillItem[];
+}
+
+export interface EducationItem {
+  id?: string;
+  institution: string;
+  degree: string;
+  period: string;
+  location: string;
+  details: string;
+}
+
+export interface ArchitectureNode {
+  id: string;
+  title: string;
+  subtitle: string;
+  icon: 'client' | 'gateway' | 'service' | 'database' | 'cicd';
+  metrics: { label: string; value: string };
+  description: string;
+  engineeringPatterns: string[];
+}
+
+export interface MobilityData {
+  status: string;
+  summary: string;
+  highlights: string[];
+}
+
+export interface PortfolioDataType {
+  personal: PersonalData;
+  experiences: Experience[];
+  skillCategories: SkillCategory[];
+  education: EducationItem[];
+  architectureNodes: ArchitectureNode[];
+  mobility: MobilityData;
+}
+
+export const PORTFOLIO_DATA: PortfolioDataType = {
+  personal: {
+    name: "Ritik Sondhi",
+    title: "Full Stack Developer & AI Workflow Specialist",
+    experienceYears: "3+",
+    location: "Nadaun, Himachal Pradesh, India",
+    relocation: "Open to travel and immediate relocation",
+    email: "sondhiritik666@gmail.com",
+    phone: "+91 8219708977",
+    linkedin: "https://linkedin.com/in/ritik-sondhi-113038422",
+    summary:
+      "Full Stack Developer with 3+ years of experience engineering real-time analytics dashboards, scalable backend services, and automated data workflows using React, Next.js, Node.js, NestJS, TypeScript, and PostgreSQL. Experienced in designing modular abstraction layers between data pipelines and UI components, managing CI/CD pipelines, and conducting peer code reviews across globally distributed teams. Comfortable supervising AI-assisted workflows and agent outputs to maintain strict code reliability and test coverage.",
+    languages: [
+      { name: "English", proficiency: "Professional" },
+      { name: "Hindi", proficiency: "Native" }
+    ],
+    metrics: [
+      { label: "Production Experience", value: "3+ Years" },
+      { label: "TypeScript Type Safety", value: "100%" },
+      { label: "Distributed Roles", value: "4 Teams" },
+      { label: "CI/CD Pipeline Pass", value: "99.9%" }
+    ]
+  },
+
+  experiences: [
+    {
+      id: "propertise",
+      company: "Propertise",
+      role: "Full Stack Developer",
+      period: "Mar 2025 to Aug 2026",
+      location: "Dubai (Remote)",
+      type: "Distributed Enterprise",
+      summary:
+        "Collaborated within a globally distributed workforce across Dubai and India, delivering weekly sprints and release milestones.",
+      achievements: [
+        "Designed backend service abstraction layers to decouple core database operations from dynamic multi-channel billing and payment APIs.",
+        "Conducted regular peer code reviews to ensure strict TypeScript type safety, system security, and regression-free PR merges.",
+        "Managed automated Continuous Integration (CI/CD) pipelines to run automated test suites and push containerized Docker builds to staging.",
+        "Built multi-level approval workflows with custom status checks, audit logs, and automated real-time financial ledger tracking."
+      ],
+      techStack: ["NestJS", "TypeScript", "PostgreSQL", "Docker", "CI/CD", "Payment APIs", "Microservices"],
+      architectureHighlights:
+        "Decoupled financial billing engine via isolated service abstraction layer, insulating database entities from third-party gateway changes and providing immutable audit trails."
+    },
+    {
+      id: "primotech",
+      company: "Primotech",
+      role: "Software Engineer (MERN Stack)",
+      period: "Jun 2024 to Mar 2025",
+      location: "Mohali, Punjab",
+      type: "Hybrid",
+      summary:
+        "Engineered real-time telemetry and estimation grids for business teams to visualize forecasting metrics and analyze seasonal trends.",
+      achievements: [
+        "Built real-time telemetry and estimation grids for business teams to visualize forecasting metrics and analyze seasonal trends.",
+        "Integrated embedded Power BI analytics dashboards using Microsoft SSO authentication, reducing licensing overhead across distributed users.",
+        "Implemented clean abstraction layers between external reporting APIs and internal sales data models using Prisma ORM and SQL.",
+        "Participated in peer code reviews, enforced consistent linting standards, and integrated GitHub Actions for continuous integration checks."
+      ],
+      techStack: ["React.js", "Node.js", "Prisma ORM", "SQL", "Power BI Embedded", "Microsoft SSO", "GitHub Actions"],
+      architectureHighlights:
+        "Embedded Power BI analytical gateway integrated with secure Microsoft SSO token-exchange, backed by Prisma-optimized SQL query pipelines."
+    },
+    {
+      id: "braincave",
+      company: "BrainCave Software Pvt. Ltd",
+      role: "MERN Stack Developer",
+      period: "Oct 2023 to Mar 2024",
+      location: "West Bengal (Remote)",
+      type: "Remote",
+      summary:
+        "Architected an academic operations suite with high-density data grids to map complex multi-tier dependencies and time-slot allocations.",
+      achievements: [
+        "Built an academic operations suite with high-density data grids to map complex multi-tier dependencies and time-slot allocations.",
+        "Developed an automated scheduling module with collision detection algorithms, recurrence rules, and personalized calendar views.",
+        "Worked with remote engineering peers across time zones, actively conducting peer reviews on pull requests and API documentation.",
+        "Set up role-based access control (RBAC) pipelines to secure administrative actions and educator onboarding flows."
+      ],
+      techStack: ["React.js", "Node.js", "Express.js", "MongoDB", "RBAC", "Algorithm Design", "REST APIs"],
+      architectureHighlights:
+        "Collision detection scheduling engine running deterministic interval intersection algorithms alongside strict JWT-based Role-Based Access Control."
+    },
+    {
+      id: "agami",
+      company: "Agami Technologies Pvt. Ltd",
+      role: "Full Stack Developer",
+      period: "Dec 2022 to Aug 2023",
+      location: "Greater Noida, UP",
+      type: "On-site / Hybrid",
+      summary:
+        "Engineered role-based dashboards in React, TypeScript, and Redux Toolkit to track multi-stage loan pipelines and conversion rates in real time.",
+      achievements: [
+        "Engineered role-based dashboards in React, TypeScript, and Redux Toolkit to track multi-stage loan pipelines and conversion rates in real time.",
+        "Created integration abstraction layers to sync third-party Loan Origination Systems (LOS) via webhook listeners and REST services.",
+        "Automated digital document collection and event-driven notifications (SMS/Email) upon reaching critical underwriting stages.",
+        "Followed continuous integration practices with Git and Postman testing suites to catch production bugs before deployment."
+      ],
+      techStack: ["React.js", "TypeScript", "Redux Toolkit", "REST APIs", "Webhooks", "Postman", "Git"],
+      architectureHighlights:
+        "Event-driven webhook ingest queue syncing external LOS updates directly into Redux state machines, triggering automated SMS/Email workflows."
+    }
+  ],
+
+  skillCategories: [
+    {
+      category: "Frontend Development",
+      skills: [
+        { name: "React.js", level: 95, featured: true },
+        { name: "Next.js", level: 90, featured: true },
+        { name: "TypeScript", level: 95, featured: true },
+        { name: "Redux Toolkit", level: 90, featured: true },
+        { name: "Tailwind CSS", level: 92, featured: true },
+        { name: "shadcn/ui", level: 88 },
+        { name: "Material-UI", level: 85 },
+        { name: "HTML5 / CSS3", level: 95 }
+      ]
+    },
+    {
+      category: "Backend & Microservices",
+      skills: [
+        { name: "Node.js", level: 92, featured: true },
+        { name: "NestJS", level: 90, featured: true },
+        { name: "Express.js", level: 90, featured: true },
+        { name: "Microservices", level: 88, featured: true },
+        { name: "Service Abstraction Layers", level: 92, featured: true },
+        { name: "REST APIs", level: 95 },
+        { name: "RBAC & JWT", level: 92 }
+      ]
+    },
+    {
+      category: "Databases & ORM",
+      skills: [
+        { name: "PostgreSQL", level: 92, featured: true },
+        { name: "SQL & Query Optimization", level: 90, featured: true },
+        { name: "Prisma ORM", level: 92, featured: true },
+        { name: "MongoDB", level: 88 },
+        { name: "Timescale & Time-series", level: 85, featured: true }
+      ]
+    },
+    {
+      category: "DevOps & Engineering Practices",
+      skills: [
+        { name: "Docker & Containers", level: 88, featured: true },
+        { name: "Continuous Integration (CI/CD)", level: 90, featured: true },
+        { name: "GitHub Actions", level: 90, featured: true },
+        { name: "Peer Code Reviews", level: 95, featured: true },
+        { name: "Git & Version Control", level: 95 },
+        { name: "Postman & JIRA", level: 90 }
+      ]
+    },
+    {
+      category: "AI-Assisted Workflow Supervision",
+      skills: [
+        { name: "AI Agent Supervision", level: 92, featured: true },
+        { name: "Automated Test Synthesis", level: 88 },
+        { name: "Prompt Chain Engineering", level: 88 },
+        { name: "Code Reliability Verification", level: 92 }
+      ]
+    }
+  ],
+
+  education: [
+    {
+      id: "mca",
+      institution: "Chitkara University",
+      degree: "Master of Computer Applications (MCA)",
+      period: "Aug 2021 to Aug 2023",
+      location: "Baddi, Himachal Pradesh",
+      details: "Advanced software engineering, distributed system design, relational database models, and algorithm optimization."
+    },
+    {
+      id: "bca",
+      institution: "Chitkara University",
+      degree: "Bachelor of Computer Applications (BCA)",
+      period: "Aug 2018 to Aug 2021",
+      location: "Baddi, Himachal Pradesh",
+      details: "Object-oriented programming, data structures, full stack web development fundamentals, and database systems."
+    }
+  ],
+
+  architectureNodes: [
+    {
+      id: "client",
+      title: "Client Tier",
+      subtitle: "React 19, Next.js & Redux Toolkit",
+      icon: "client",
+      metrics: { label: "Active Telemetry", value: "60 FPS Grids" },
+      description:
+        "High-density UI components, state machines with Redux Toolkit, and optimistic updates. Decoupled from direct database APIs via strict client contracts.",
+      engineeringPatterns: [
+        "Modular abstraction between UI state and telemetry feeds",
+        "Optimistic updates for zero perceptible UI lag",
+        "Strict TypeScript interfaces matching API schemas"
+      ]
+    },
+    {
+      id: "gateway",
+      title: "API Gateway & RBAC",
+      subtitle: "NestJS Guards & JWT Auth",
+      icon: "gateway",
+      metrics: { label: "Auth Latency", value: "< 2.4ms" },
+      description:
+        "Central entry point handling rate limiting, token verification, and granular Role-Based Access Control guards before forwarding requests to microservices.",
+      engineeringPatterns: [
+        "Deterministic route guarding for multi-tenant users",
+        "JWT token rotation and revocation blacklists",
+        "Audit log telemetry emission for security compliance"
+      ]
+    },
+    {
+      id: "service",
+      title: "Service Abstraction Layer",
+      subtitle: "Decoupled Multi-Channel Billing & LOS",
+      icon: "service",
+      metrics: { label: "Decoupled Modules", value: "100% Isolated" },
+      description:
+        "Architected at Propertise and Agami to isolate core business models from dynamic third-party providers (payment gateways, LOS webhooks, and Power BI).",
+      engineeringPatterns: [
+        "Adapter and Factory patterns insulating database schemas",
+        "Idempotent webhook listener queues with retry backoff",
+        "Zero vendor lock-in when switching payment/reporting APIs"
+      ]
+    },
+    {
+      id: "database",
+      title: "Data Engine Tier",
+      subtitle: "PostgreSQL, Prisma ORM & Timescale",
+      icon: "database",
+      metrics: { label: "Query Avg", value: "3.1ms" },
+      description:
+        "Type-safe relational database queries powered by Prisma ORM, indexed for time-series forecasting grids and high-frequency financial ledgers.",
+      engineeringPatterns: [
+        "Normalized schema with strict foreign key constraints",
+        "Prisma client connection pooling and statement caching",
+        "Time-series partitioning for seasonal telemetry trends"
+      ]
+    },
+    {
+      id: "cicd",
+      title: "CI/CD Pipeline",
+      subtitle: "Docker & GitHub Actions",
+      icon: "cicd",
+      metrics: { label: "Deploy Reliability", value: "99.9% Pass" },
+      description:
+        "Automated workflows running TypeScript type checks, unit/integration suites, and pushing containerized Docker images to staging environments.",
+      engineeringPatterns: [
+        "Strict compile-time verification with zero loose \"any\"",
+        "Multi-stage Docker builds minimizing production image footprint",
+        "Automated status check gates preventing regression merges"
+      ]
+    }
+  ],
+
+  mobility: {
+    status: "● Immediate Relocation & Travel Ready",
+    summary:
+      "Available for immediate onboarding with zero relocation notice period. Fully equipped and experienced collaborating across international time zones (Dubai GMT+4, India GMT+5:30, US/EU remote).",
+    highlights: [
+      "Open to relocation in India (Bengaluru, NCR, Hyderabad, Pune, Mohali)",
+      "Open to relocation in Dubai / UAE & international tech hubs",
+      "Experienced with async global sprint delivery & PR code reviews"
+    ]
+  }
+};
