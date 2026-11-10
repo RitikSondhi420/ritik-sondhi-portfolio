@@ -9,14 +9,25 @@ async function bootstrap() {
   // Global API route prefix
   app.setGlobalPrefix('api');
 
-  // CORS for frontend Vite dev and production origins
+  // CORS for frontend Vite dev and production origins (Netlify, Vercel, localhost)
+  const allowedOriginsEnv = process.env.CORS_ORIGIN
+    ? process.env.CORS_ORIGIN.split(',').map((o) => o.trim())
+    : [];
+
   app.enableCors({
-    origin: [
-      'http://localhost:5173',
-      'http://localhost:5174',
-      'http://127.0.0.1:5173',
-      'http://127.0.0.1:5174',
-    ],
+    origin: (origin, callback) => {
+      if (!origin) return callback(null, true);
+      if (
+        origin.includes('localhost') ||
+        origin.includes('127.0.0.1') ||
+        origin.endsWith('.netlify.app') ||
+        origin.endsWith('.vercel.app') ||
+        allowedOriginsEnv.includes(origin)
+      ) {
+        return callback(null, true);
+      }
+      return callback(null, true); // Allow all web origins for portfolio API
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     credentials: true,
   });
