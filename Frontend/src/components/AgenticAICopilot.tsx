@@ -113,11 +113,11 @@ export const AgenticAICopilot: React.FC<AgenticAICopilotProps> = ({
       });
       toolResult = 'Identified strong adaptability for Python in AI tooling, scripting, and data pipelines.';
       agentResponse =
-        `**Ritik Sondhi's Experience & Proficiency with Python:**\n\n` +
-        `• **AI & Agentic Workflows**: Ritik's profile explicitly highlights his experience in **supervising AI-assisted workflows and autonomous agent outputs**. In this domain, Python is a standard companion for agent orchestration, prompt chaining, data transformation scripts, and automated test synthesis.\n\n` +
-        `• **Core Production Stack**: In enterprise production, Ritik primarily architects mission-critical microservices and dashboards using **TypeScript, NestJS, Node.js, React, and PostgreSQL** (such as decoupled billing at Propertise and loan ingestion at Agami).\n\n` +
-        `• **Polyglot Adaptability**: With his strong grasp of **Service Abstraction Layers, REST APIs, and microservices design**, Ritik easily applies Python frameworks (such as FastAPI, Flask, or PyTorch/LLM wrappers) whenever systems require Python service nodes.\n\n` +
-        `• **Verdict**: Highly capable in Python for AI tooling, automation scripts, and backend service integration.`;
+        `**Ritik Sondhi's Experience with Python:**\n\n` +
+        `• **Backend & Scripting**: Ritik uses Python for data processing, utility scripts, and backend service integration alongside his core JavaScript/TypeScript stack.\n\n` +
+        `• **Core Production Stack**: In enterprise applications, Ritik primarily works with **React.js, Next.js, Node.js, NestJS, TypeScript, and PostgreSQL**.\n\n` +
+        `• **API & Microservice Design**: With his strong grasp of **REST APIs, microservices, and database optimization**, Ritik easily adapts to Python frameworks like FastAPI or Flask when required.\n\n` +
+        `• **Verdict**: Practical hands-on experience in Python for automation and backend services.`;
     }
     // 2. Propertise inquiry
     else if (q.includes('propertise') || q.includes('billing') || q.includes('payment') || q.includes('dubai')) {
@@ -125,11 +125,11 @@ export const AgenticAICopilot: React.FC<AgenticAICopilotProps> = ({
       toolParams = JSON.stringify({ role: 'Propertise', location: 'Dubai (Remote)', focus: 'Payment Decoupling' });
       toolResult = 'Loaded service abstraction layer, Docker staging pipelines, and financial ledger sync.';
       agentResponse =
-        `At **Propertise** (${data.experiences.find((e) => e.id === 'propertise')?.period || 'Mar 2025 – Aug 2026'}, Dubai Remote):\n\n` +
-        `• **Decoupled Billing Architecture**: Ritik designed backend service abstraction layers using NestJS and TypeScript to decouple core database entities from dynamic multi-channel billing and payment APIs.\n` +
-        `• **Zero-Regression Code Reviews**: Conducted strict peer code reviews ensuring 100% TypeScript type safety, system security, and regression-free PR merges.\n` +
-        `• **Containerized CI/CD**: Managed automated pipelines to execute comprehensive test suites and push Docker builds to staging.\n` +
-        `• **Ledger Tracking**: Built multi-level approval workflows with custom status checks, audit logs, and real-time financial ledger synchronization.`;
+        `At **Propertise** (${data.experiences.find((e) => e.id === 'propertise')?.period || 'Mar 2025 to Aug 2026'}, Dubai Remote):\n\n` +
+        `• **Decoupled Billing Architecture**: Designed backend microservices and payment modules using NestJS and PostgreSQL to handle billing workflows.\n` +
+        `• **Code Quality & Reviews**: Conducted regular peer code reviews to ensure strict TypeScript type safety and maintain code standards across the team.\n` +
+        `• **CI/CD Automation**: Configured Docker containers and GitHub Actions pipelines to automate test runs and staging deployments.\n` +
+        `• **Ledger & Audit Tracking**: Built multi-level approval workflows and audit logs to track real-time financial ledger records.`;
     }
     // 3. BrainCave / Collision / Scheduling
     else if (q.includes('braincave') || q.includes('collision') || q.includes('scheduling') || q.includes('algorithm')) {
@@ -203,30 +203,30 @@ export const AgenticAICopilot: React.FC<AgenticAICopilotProps> = ({
       toolName = 'compute_candidate_match_score';
       toolParams = JSON.stringify({
         candidate: data.personal.name,
-        evaluated_skills: ['React', 'NestJS', 'PostgreSQL', 'Microservices', 'Docker', 'AI Workflows'],
+        evaluated_skills: ['React.js', 'NestJS', 'PostgreSQL', 'Microservices', 'Docker', 'TypeScript'],
       });
-      toolResult = 'Candidate Match Score: 96.4% across full-stack engineering.';
+      toolResult = 'Candidate Match Score: 96% for Full Stack Developer roles.';
       agentResponse =
         `**Candidate Evaluation for Ritik Sondhi:**\n\n` +
         `• **Match Score**: 96%\n` +
-        `• **Key Strengths**: 3+ years engineering real-time analytics dashboards, scalable backend microservices, and supervising AI-assisted workflows.\n` +
-        `• **Engineering Leadership**: Experienced in designing modular abstraction layers, managing CI/CD Docker pipelines, and conducting peer code reviews across globally distributed teams (Dubai & India).\n` +
-        `• **Mobility**: Open to travel and immediate relocation.`;
+        `• **Key Strengths**: 3+ years of experience building responsive dashboards, RESTful APIs, and scalable backend microservices.\n` +
+        `• **Team Experience**: Experienced in agile delivery, sprint planning, and code reviews across distributed teams.\n` +
+        `• **Availability**: Ready for immediate joining with zero notice period. Open to relocation.`;
     }
     // 9. General fallback with full query context
     else {
       toolName = 'query_fullstack_graph';
       toolParams = JSON.stringify({ query: queryText });
-      toolResult = `Queried live portfolio graph for "${queryText}". Found relevant data in personal bio and ${data.experiences.length} roles.`;
+      toolResult = `Queried portfolio data for "${queryText}". Found relevant data in personal bio and ${data.experiences.length} roles.`;
       agentResponse =
         `Regarding "${queryText}":\n\n` +
-        `Ritik Sondhi is a **Full Stack Developer & AI Workflow Specialist** with 3+ years of experience engineering real-time analytics dashboards, scalable backend microservices, and decoupled service abstraction layers.\n\n` +
-        `His production portfolio spans:\n` +
-        `• **Frontend**: React.js, Next.js, TypeScript, Redux Toolkit, Tailwind CSS, shadcn/ui\n` +
-        `• **Backend & APIs**: NestJS, Node.js, Express.js, REST APIs, Microservices, RBAC & JWT\n` +
-        `• **Databases**: PostgreSQL, SQL, Prisma ORM, MongoDB, Timescale time-series\n` +
-        `• **AI & DevOps**: AI Agent Supervision, Docker, GitHub Actions CI/CD\n\n` +
-        `Would you like to know more about his work at **Propertise**, **Primotech**, **BrainCave**, or **Agami Technologies**?`;
+        `Ritik Sondhi is a **Full Stack Developer** with 3+ years of experience building modern web applications, microservices, and databases.\n\n` +
+        `His primary skills include:\n` +
+        `• **Frontend**: React.js, Next.js, TypeScript, Redux Toolkit, Tailwind CSS, HTML5, CSS3\n` +
+        `• **Backend & APIs**: Node.js, NestJS, Express.js, REST APIs, Microservices, JWT, RBAC\n` +
+        `• **Databases**: PostgreSQL, SQL, Prisma ORM, MongoDB, Redis\n` +
+        `• **DevOps & Tools**: Docker, GitHub Actions (CI/CD), Git, Postman, JIRA\n\n` +
+        `Would you like to know more about his work experience at **Propertise**, **Primotech**, **BrainCave**, or **Agami Technologies**?`;
     }
 
     // Step 1: Render Tool Execution Step

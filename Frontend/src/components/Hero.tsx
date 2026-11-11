@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCopilotWithQuery, onEditPerson
           <div className="glass-pill">
             <Cpu size={14} color="var(--purple-light)" />
             <span style={{ color: 'var(--purple-light)', fontSize: '0.82rem', fontWeight: 500 }}>
-              AI-Assisted Workflow Supervisor
+              Full Stack & Microservices
             </span>
           </div>
 

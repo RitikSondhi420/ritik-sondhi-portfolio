@@ -139,7 +139,7 @@ export const EducationAndRelocation: React.FC<EducationAndRelocationProps> = ({
                   </div>
 
                   <div style={{ fontSize: '0.84rem', color: 'var(--cyan-light)', marginBottom: '8px' }}>
-                    {edu.institution} — {edu.location}
+                    {edu.institution} | {edu.location}
                   </div>
 
                   <p style={{ fontSize: '0.86rem', color: 'var(--text-muted)', lineHeight: 1.6 }}>

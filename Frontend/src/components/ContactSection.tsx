@@ -82,8 +82,8 @@ export const ContactSection: React.FC = () => {
           </h2>
 
           <p style={{ color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.65 }}>
-            Whether you are looking to hire a Full Stack Lead, engineer high-throughput microservices,
-            or deploy AI-assisted engineering workflows—my inbox is always open.
+            Whether you are looking to hire a Full Stack Developer, build scalable microservices,
+            or optimize your web applications, my inbox is always open.
           </p>
         </div>
       </ScrollReveal>

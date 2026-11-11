@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚡ Ritik Sondhi — Full-Stack Portfolio & System Architecture
+# ⚡ Ritik Sondhi: Full-Stack Portfolio & System Architecture
 
 An engineering-first, high-performance portfolio and system architecture visualizer built with **React 19, TypeScript, Vite, NestJS, PostgreSQL, Prisma, and Redis**.
 
@@ -176,7 +176,7 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 ## 📜 License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 

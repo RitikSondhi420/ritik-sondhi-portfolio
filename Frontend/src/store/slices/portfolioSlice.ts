@@ -21,7 +21,7 @@ import type {
   UpdateEducationItemPayload,
 } from '../types';
 
-const STORAGE_KEY = 'ritik_portfolio_data_v2';
+const STORAGE_KEY = 'ritik_portfolio_data_v3';
 const AUTH_KEY = 'ritik_portfolio_auth_v1';
 
 export const normalizeArchitectureNode = (node: any): ArchitectureNode => {

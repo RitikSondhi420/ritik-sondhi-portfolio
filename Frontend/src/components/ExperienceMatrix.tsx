@@ -223,7 +223,7 @@ export const ExperienceMatrix: React.FC<ExperienceMatrixProps> = ({
                     </span>
                   </div>
                   <div style={{ fontSize: '0.96rem', color: 'var(--cyan-light)', fontWeight: 600 }}>
-                    {activeExp.company} — {activeExp.location}
+                    {activeExp.company} | {activeExp.location}
                   </div>
                 </div>
 
