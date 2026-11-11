@@ -96,7 +96,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               flexShrink: 0,
             }}
           >
-            RSs
+            RS
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span
